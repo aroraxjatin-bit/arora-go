@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AroraGo — Premium Travel Booking Design System
+ * Brand: Navy #1B2A6B + Orange #F47920 + White
+ * Token names "saffron" → orange, "deep-green" → navy (kept for compatibility).
+ * All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-saffron: var(--saffron);
+  --color-saffron-foreground: var(--saffron-foreground);
+  --color-deep-green: var(--deep-green);
+
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+
+  --shadow-card: 0 4px 16px -2px color-mix(in oklab, var(--deep-green) 14%, transparent);
+  --shadow-elevated: 0 12px 32px -8px color-mix(in oklab, var(--deep-green) 25%, transparent);
+  --shadow-saffron: 0 8px 24px -6px color-mix(in oklab, var(--saffron) 45%, transparent);
+
+  --gradient-saffron: linear-gradient(135deg, oklch(0.74 0.18 55) 0%, oklch(0.66 0.20 45) 100%);
+  --gradient-hero: linear-gradient(180deg, transparent 0%, color-mix(in oklab, var(--deep-green) 75%, transparent) 100%);
+  --gradient-overlay: linear-gradient(180deg, color-mix(in oklab, black 10%, transparent) 0%, color-mix(in oklab, black 75%, transparent) 100%);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand — Navy + Orange */
+  --saffron: oklch(0.70 0.19 50);             /* #F47920 orange — token kept as 'saffron' */
+  --saffron-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.78 0.17 60);
+  --deep-green: oklch(0.30 0.13 270);         /* #1B2A6B navy — token kept as 'deep-green' */
+
+  --background: oklch(0.99 0.003 250);
+  --foreground: oklch(0.20 0.05 270);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.05 270);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.05 270);
+
+  --primary: oklch(0.70 0.19 50);             /* orange */
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.30 0.13 270);          /* navy */
+  --secondary-foreground: oklch(0.99 0.003 250);
+
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.45 0.04 270);
+
+  --accent: oklch(0.96 0.03 60);              /* warm cream tinted */
+  --accent-foreground: oklch(0.30 0.13 270);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --success: oklch(0.55 0.15 150);
+  --success-foreground: oklch(1 0 0);
+
+  --whatsapp: oklch(0.62 0.16 150);
+
+  --border: oklch(0.92 0.01 250);
+  --input: oklch(0.94 0.01 250);
+  --ring: oklch(0.70 0.19 50);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 155);
+  --foreground: oklch(0.98 0.005 80);
+  --card: oklch(0.22 0.03 155);
+  --card-foreground: oklch(0.98 0.005 80);
+  --popover: oklch(0.22 0.03 155);
+  --popover-foreground: oklch(0.98 0.005 80);
+  --primary: oklch(0.72 0.2 40);
+  --primary-foreground: oklch(0.16 0.02 155);
+  --secondary: oklch(0.28 0.04 155);
+  --secondary-foreground: oklch(0.98 0.005 80);
+  --muted: oklch(0.26 0.03 155);
+  --muted-foreground: oklch(0.7 0.02 80);
+  --accent: oklch(0.28 0.04 155);
+  --accent-foreground: oklch(0.98 0.005 80);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.2 40);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-saffron { color: var(--saffron); }
+  .bg-saffron { background-color: var(--saffron); }
+  .border-saffron { border-color: var(--saffron); }
+  .text-deep-green { color: var(--deep-green); }
+  .bg-deep-green { background-color: var(--deep-green); }
+  .bg-whatsapp { background-color: var(--whatsapp); }
+
+  .gradient-saffron { background: var(--gradient-saffron); }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-overlay { background: var(--gradient-overlay); }
+
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-saffron { box-shadow: var(--shadow-saffron); }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
+}
+
